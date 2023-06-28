@@ -1,0 +1,2 @@
+rootProject.name = "Android Views Masterclass Course"
+include ':app'

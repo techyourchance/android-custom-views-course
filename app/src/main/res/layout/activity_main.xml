@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_lightest"
+    tools:context=".general.MainActivity"
+    >
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/primary"
+        app:contentInsetStart="0dp"
+        android:elevation="20dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <FrameLayout
+                android:layout_width="@dimen/toolbar_button_size"
+                android:layout_height="@dimen/toolbar_button_size"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/viewNavigateBack"
+                    android:layout_width="@dimen/toolbar_icon_size"
+                    android:layout_height="@dimen/toolbar_icon_size"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_navigate_up"
+                    android:visibility="gone"
+                    />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtToolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="gone"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- Main content -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerViewMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

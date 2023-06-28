@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="toolbar_button_size">54dp</dimen>
+    <dimen name="toolbar_icon_size">24dp</dimen>
+
+    <dimen name="padding_screen_horizontal_standard">50dp</dimen>
+
+    <dimen name="home_recycler_item_height">80dp</dimen>
+    <dimen name="home_recycler_item_padding_horizontal">15dp</dimen>
+
+</resources>
