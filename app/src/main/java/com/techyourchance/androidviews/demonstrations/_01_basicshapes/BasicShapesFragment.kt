@@ -12,8 +12,7 @@ class BasicShapesFragment : BaseFragment() {
     override val screenName get() = getString(R.string.screen_name_basic_shapes)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view = layoutInflater.inflate(R.layout.layout_basic_shapes, container, false)
-        return view
+        return layoutInflater.inflate(R.layout.layout_basic_shapes, container, false)
     }
 
     companion object {
