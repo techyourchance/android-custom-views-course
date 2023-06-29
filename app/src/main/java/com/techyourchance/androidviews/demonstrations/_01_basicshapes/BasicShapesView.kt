@@ -21,6 +21,10 @@ class BasicShapesView : CustomViewScaffold {
 
     private val rectangleRect: RectF = RectF()
 
+    private var circleXCenter: Float = 0f
+    private var circleYCenter: Float = 0f
+    private var circleRadius: Float = 0f
+
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
@@ -46,6 +50,10 @@ class BasicShapesView : CustomViewScaffold {
         val rectangleTop = (h - rectangleHeight) / 2
         val rectangleBottom = rectangleTop + rectangleHeight
         rectangleRect.set(rectangleMarginHorizontal, rectangleTop, rectangleMarginHorizontal + rectangleWidth, rectangleBottom)
+
+        circleXCenter = w / 2f
+        circleYCenter = h * CIRCLE_Y_POS_FRACTION
+        circleRadius = h * CIRCLE_RADIUS_FRACTION
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -60,6 +68,9 @@ class BasicShapesView : CustomViewScaffold {
 
         // Draw the rectangle
         canvas.drawRect(rectangleRect, paint)
+
+        // Draw the circle
+        canvas.drawCircle(circleXCenter, circleYCenter, circleRadius, paint)
     }
 
 
@@ -68,5 +79,7 @@ class BasicShapesView : CustomViewScaffold {
         const val LINE_MARGIN_HORIZONTAL_DP = 20f
         const val LINE_HEIGHT_DP = 5f
         const val RECTANGLE_MARGIN_HORIZONTAL_DP = 20f
+        const val CIRCLE_Y_POS_FRACTION = 0.8f
+        const val CIRCLE_RADIUS_FRACTION = 0.1f
     }
 }
