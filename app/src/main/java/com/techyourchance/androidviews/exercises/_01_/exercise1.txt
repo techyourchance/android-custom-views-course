@@ -1,0 +1,8 @@
+The goal of this exercise is to draw the basic shape constituting a "slider" on the screen.
+
+Steps:
+1. Modify MySliderView
+2. Draw a horizontal line
+3. Draw a circular filled thumb in the center of the line (use Paint.Style.FILL)
+
+Since the thumb will move left and right to the edges of the View in the future, leave margins equal to thumb's radius on either side of the line.
