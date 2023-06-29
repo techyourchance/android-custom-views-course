@@ -6,11 +6,12 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import androidx.core.graphics.ColorUtils
 import kotlin.math.min
 
-class CustomViewScaffold: View {
+open class CustomViewScaffold: View {
 
     // Secondary constructors (don't use @JvmOverloads as it can lead to bugs).
     constructor(context: Context?) : super(context)
@@ -32,4 +33,11 @@ class CustomViewScaffold: View {
     override fun onDraw(canvas: Canvas) {
     }
 
+    protected fun dpToPx(dp: Float): Float {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dp,
+            context.resources.displayMetrics,
+        )
+    }
 }
