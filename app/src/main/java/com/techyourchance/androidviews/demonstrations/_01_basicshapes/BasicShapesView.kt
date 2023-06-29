@@ -1,10 +1,14 @@
 package com.techyourchance.androidviews.demonstrations._01_basicshapes
+
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.graphics.Color
+import android.graphics.RectF
+import androidx.core.content.ContextCompat
 import com.techyourchance.androidviews.CustomViewScaffold
+import com.techyourchance.androidviews.R
 
 class BasicShapesView : CustomViewScaffold {
 
@@ -14,6 +18,8 @@ class BasicShapesView : CustomViewScaffold {
     private var lineXRight: Float = 0f
     private var lineYPos: Float = 0f
     private var lineHeight: Float = 0f
+
+    private val rectangleRect: RectF = RectF()
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
@@ -33,17 +39,27 @@ class BasicShapesView : CustomViewScaffold {
         lineXRight = w - lineMarginHorizontal
         lineYPos = height * LINE_Y_POS_FRACTION
         lineHeight = dpToPx(LINE_HEIGHT_DP)
+
+        val rectangleMarginHorizontal = dpToPx(RECTANGLE_MARGIN_HORIZONTAL_DP)
+        val rectangleWidth = w - 2 * rectangleMarginHorizontal
+        val rectangleHeight = rectangleWidth / 2
+        val rectangleTop = (h - rectangleHeight) / 2
+        val rectangleBottom = rectangleTop + rectangleHeight
+        rectangleRect.set(rectangleMarginHorizontal, rectangleTop, rectangleMarginHorizontal + rectangleWidth, rectangleBottom)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        paint.color = Color.BLACK
+        paint.color = ContextCompat.getColor(context, R.color.primary_variant)
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = lineHeight
 
         // Draw the line
         canvas.drawLine(lineXLeft, lineYPos, lineXRight, lineYPos, paint)
+
+        // Draw the rectangle
+        canvas.drawRect(rectangleRect, paint)
     }
 
 
@@ -51,5 +67,6 @@ class BasicShapesView : CustomViewScaffold {
         const val LINE_Y_POS_FRACTION = 0.2f
         const val LINE_MARGIN_HORIZONTAL_DP = 20f
         const val LINE_HEIGHT_DP = 5f
+        const val RECTANGLE_MARGIN_HORIZONTAL_DP = 20f
     }
 }
