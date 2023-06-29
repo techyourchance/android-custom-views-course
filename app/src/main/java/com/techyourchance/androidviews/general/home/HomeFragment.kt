@@ -38,6 +38,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.BasicShapes,
                 getString(R.string.screen_name_basic_shapes),
             ),
+            FromHomeDestination(
+                ScreenSpec.Exercise1,
+                getString(R.string.screen_name_my_slider),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

@@ -6,6 +6,7 @@ import java.io.Serializable
 sealed class ScreenSpec(): Serializable {
     object Home: ScreenSpec()
     object BasicShapes: ScreenSpec()
+    object Exercise1: ScreenSpec()
 
     companion object {
         /**
