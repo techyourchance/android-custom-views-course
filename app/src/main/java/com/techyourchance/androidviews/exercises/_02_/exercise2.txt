@@ -1,0 +1,10 @@
+The goal of this exercise is to make the thumb of the slider that you created in exercise 1 draggable.
+
+Steps:
+1. Modify MySliderView.
+2. Detect touch events on the thumb.
+3. Implement thumb drag.
+
+Notes:
+1. Thumb's motion must be restricted to a single dimension.
+2. Within the motion dimension, thumb's range must be restricted to the underlying slider's track.
