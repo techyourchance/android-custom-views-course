@@ -9,8 +9,10 @@ sealed class ScreenSpec(): Serializable {
     object Exercise1: ScreenSpec()
     object Positioning: ScreenSpec()
     object BasicTouch: ScreenSpec()
+    object Drag: ScreenSpec()
 
     companion object {
+
         /**
          * Intent extra key for Serialized ScreenSpec's
          */

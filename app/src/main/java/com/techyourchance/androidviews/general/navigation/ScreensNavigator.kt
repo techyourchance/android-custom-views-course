@@ -11,6 +11,7 @@ import com.techyourchance.androidviews.demonstrations._01_basicshapes.BasicShape
 import com.techyourchance.androidviews.exercises._01_.MySliderFragment
 import com.techyourchance.androidviews.demonstrations._02_positioning.PositioningFragment
 import com.techyourchance.androidviews.demonstrations._03_basic_touch.BasicTouchFragment
+import com.techyourchance.androidviews.demonstrations._04_drag.DragFragment
 
 
 @UiThread
@@ -45,6 +46,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.Exercise1 -> MySliderFragment.newInstance()
             is ScreenSpec.Positioning -> PositioningFragment.newInstance()
             is ScreenSpec.BasicTouch -> BasicTouchFragment.newInstance()
+            is ScreenSpec.Drag -> DragFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()
