@@ -8,6 +8,7 @@ sealed class ScreenSpec(): Serializable {
     object BasicShapes: ScreenSpec()
     object Exercise1: ScreenSpec()
     object Positioning: ScreenSpec()
+    object BasicTouch: ScreenSpec()
 
     companion object {
         /**

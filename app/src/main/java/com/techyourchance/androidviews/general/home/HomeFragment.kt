@@ -46,6 +46,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.Positioning,
                 getString(R.string.screen_name_positioning),
             ),
+            FromHomeDestination(
+                ScreenSpec.BasicTouch,
+                getString(R.string.screen_name_basic_touch),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }
