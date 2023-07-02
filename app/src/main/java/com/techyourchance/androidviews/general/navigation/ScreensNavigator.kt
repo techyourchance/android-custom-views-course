@@ -9,6 +9,7 @@ import com.ncapdevi.fragnav.FragNavController
 import com.techyourchance.androidviews.general.home.HomeFragment
 import com.techyourchance.androidviews.demonstrations._01_basicshapes.BasicShapesFragment
 import com.techyourchance.androidviews.exercises._01_.MySliderFragment
+import com.techyourchance.androidviews.demonstrations._02_positioning.PositioningFragment
 import com.techyourchance.androidviews.general.BaseFragment
 
 
@@ -42,6 +43,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.Home -> HomeFragment.newInstance()
             is ScreenSpec.BasicShapes -> BasicShapesFragment.newInstance()
             is ScreenSpec.Exercise1 -> MySliderFragment.newInstance()
+            ScreenSpec.Positioning -> PositioningFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()
