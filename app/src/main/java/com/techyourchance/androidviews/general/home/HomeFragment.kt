@@ -42,6 +42,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.Exercise1,
                 getString(R.string.screen_name_my_slider),
             ),
+            FromHomeDestination(
+                ScreenSpec.Positioning,
+                getString(R.string.screen_name_positioning),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }
