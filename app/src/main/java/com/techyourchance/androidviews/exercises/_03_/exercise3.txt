@@ -1,0 +1,9 @@
+The goal of this exercise is to add value tracking to the slider that you created.
+
+Steps:
+1. Modify MySliderView.
+2. Add a public property of type SliderChangeListener.
+3. Compute the slider's value depending on thumb's position on the track (left: 0; right: 1.0).
+4. Whenever the value changes, notify the attached SliderChangeListener.
+5. Make sure that the current slider's value is a public property (or add a public getter method).
+6. Add a text field to MySliderFragment and show the current slider's value in it.
