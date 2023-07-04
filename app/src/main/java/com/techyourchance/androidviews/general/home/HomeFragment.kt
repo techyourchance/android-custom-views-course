@@ -54,6 +54,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.Drag,
                 getString(R.string.screen_name_drag),
             ),
+            FromHomeDestination(
+                ScreenSpec.SolutionExercise3,
+                getString(R.string.screen_name_solution_exercise_3),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

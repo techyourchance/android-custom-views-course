@@ -10,6 +10,7 @@ sealed class ScreenSpec(): Serializable {
     object Positioning: ScreenSpec()
     object BasicTouch: ScreenSpec()
     object Drag: ScreenSpec()
+    object SolutionExercise3: ScreenSpec()
 
     companion object {
 
