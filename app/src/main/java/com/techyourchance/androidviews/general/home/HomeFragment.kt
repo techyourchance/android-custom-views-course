@@ -58,6 +58,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.SolutionExercise3,
                 getString(R.string.screen_name_solution_exercise_3),
             ),
+            FromHomeDestination(
+                ScreenSpec.StatePreservation,
+                getString(R.string.screen_name_state_preservation),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }
