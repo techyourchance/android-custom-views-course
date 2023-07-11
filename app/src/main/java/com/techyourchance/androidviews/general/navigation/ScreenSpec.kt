@@ -11,6 +11,7 @@ sealed class ScreenSpec(): Serializable {
     object BasicTouch: ScreenSpec()
     object Drag: ScreenSpec()
     object SolutionExercise3: ScreenSpec()
+    object StatePreservation: ScreenSpec()
 
     companion object {
 
