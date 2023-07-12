@@ -1,0 +1,7 @@
+The goal of this exercise is to preserve the state of your slider on configuration changes and process death.
+
+Steps:
+1. Modify MySliderView.
+2. Save slider's state in onSaveInstanceState().
+3. Restore slider's state in onRestoreInstanceState().
+4. Perform configuration changes to test your implementation.
