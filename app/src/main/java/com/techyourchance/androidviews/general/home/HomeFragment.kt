@@ -62,6 +62,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.StatePreservation,
                 getString(R.string.screen_name_state_preservation),
             ),
+            FromHomeDestination(
+                ScreenSpec.Animations,
+                getString(R.string.screen_name_animations),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

@@ -8,6 +8,7 @@
     <string name="screen_name_drag">Drag</string>
     <string name="screen_name_solution_exercise_3">Solution exercise 3</string>
     <string name="screen_name_state_preservation">State preservation</string>
+    <string name="screen_name_animations">Animations</string>
 
     <string name="positioning_left">left</string>
     <string name="positioning_translation_x">translationX</string>
