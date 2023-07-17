@@ -26,6 +26,7 @@ class AnimationsFragment : BaseFragment() {
 
     private lateinit var viewAnimations: AnimationsView
     private lateinit var viewAnimations2: AnimationsView
+    private lateinit var viewAnimations3: AnimationsView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,7 @@ class AnimationsFragment : BaseFragment() {
         return layoutInflater.inflate(R.layout.layout_animations, container, false).apply {
             viewAnimations = findViewById(R.id.viewAnimations)
             viewAnimations2 = findViewById(R.id.viewAnimations2)
+            viewAnimations3 = findViewById(R.id.viewAnimations3)
             loopAnimator.listener = object : LoopAnimatorListener {
                 override fun onAnimatedValueChanged(value: Float) {
                     viewAnimations.translationX = value
@@ -68,6 +70,8 @@ class AnimationsFragment : BaseFragment() {
                 setCurrentFraction(relativePosition)
                 start()
             }
+
+            viewAnimations3.startAnimation(ANIMATION_PERIOD_NS / 1_000_000)
         }
     }
 
@@ -75,6 +79,7 @@ class AnimationsFragment : BaseFragment() {
         super.onPause()
         loopAnimator.stopAnimation()
         objectAnimator?.cancel()
+        viewAnimations3.stopAnimation()
     }
 
     companion object {
