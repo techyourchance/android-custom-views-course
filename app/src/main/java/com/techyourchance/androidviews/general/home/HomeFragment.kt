@@ -66,6 +66,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.Animations,
                 getString(R.string.screen_name_animations),
             ),
+            FromHomeDestination(
+                ScreenSpec.PathShape,
+                getString(R.string.screen_name_path_shape),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

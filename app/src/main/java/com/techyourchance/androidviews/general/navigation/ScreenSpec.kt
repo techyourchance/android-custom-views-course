@@ -13,6 +13,7 @@ sealed class ScreenSpec(): Serializable {
     object SolutionExercise3: ScreenSpec()
     object StatePreservation: ScreenSpec()
     object Animations: ScreenSpec()
+    object PathShape: ScreenSpec()
 
     companion object {
 
