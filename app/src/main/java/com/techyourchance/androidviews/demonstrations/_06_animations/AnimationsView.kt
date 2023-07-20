@@ -23,6 +23,7 @@ class AnimationsView : CustomViewScaffold {
     private var borderSize = 0f
     private val borderRect = RectF()
 
+
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)

@@ -1,12 +1,17 @@
 package com.techyourchance.androidviews.demonstrations._06_animations
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Choreographer
 import android.view.Choreographer.FrameCallback
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import com.techyourchance.androidviews.R
 import com.techyourchance.androidviews.general.BaseFragment
 import kotlin.math.pow
@@ -17,8 +22,10 @@ class AnimationsFragment : BaseFragment() {
     override val screenName get() = getString(R.string.screen_name_animations)
 
     private val loopAnimator = LoopAnimator()
+    private var objectAnimator: ObjectAnimator? = null
 
     private lateinit var viewAnimations: AnimationsView
+    private lateinit var viewAnimations2: AnimationsView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +35,7 @@ class AnimationsFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return layoutInflater.inflate(R.layout.layout_animations, container, false).apply {
             viewAnimations = findViewById(R.id.viewAnimations)
+            viewAnimations2 = findViewById(R.id.viewAnimations2)
             loopAnimator.listener = object : LoopAnimatorListener {
                 override fun onAnimatedValueChanged(value: Float) {
                     viewAnimations.translationX = value
@@ -38,7 +46,7 @@ class AnimationsFragment : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        viewAnimations.post {
+        Handler(Looper.getMainLooper()). post {
             val animationAmplitude = viewAnimations.width * ANIMATION_AMPLITUDE_TO_WIDTH_FRACTION
             loopAnimator.startAnimation(
                 ANIMATION_PERIOD_NS,
@@ -46,12 +54,27 @@ class AnimationsFragment : BaseFragment() {
                 -animationAmplitude,
                 viewAnimations.translationX
             )
+            objectAnimator = ObjectAnimator.ofFloat(
+                viewAnimations2,
+                "translationX",
+                animationAmplitude,
+                -animationAmplitude
+            ).apply {
+                interpolator = LinearInterpolator()
+                duration = ANIMATION_PERIOD_NS / 1_000_000 / 2
+                repeatCount = ValueAnimator.INFINITE
+                repeatMode = ValueAnimator.REVERSE
+                val relativePosition = (viewAnimations.translationX + animationAmplitude) / (2 * animationAmplitude)
+                setCurrentFraction(relativePosition)
+                start()
+            }
         }
     }
 
     override fun onPause() {
         super.onPause()
         loopAnimator.stopAnimation()
+        objectAnimator?.cancel()
     }
 
     companion object {
