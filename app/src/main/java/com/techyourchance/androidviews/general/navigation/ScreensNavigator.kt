@@ -15,6 +15,7 @@ import com.techyourchance.androidviews.demonstrations._04_drag.DragFragment
 import com.techyourchance.androidviews.demonstrations._05_state_preservation.StatePreservationFragment
 import com.techyourchance.androidviews.demonstrations._06_animations.AnimationsFragment
 import com.techyourchance.androidviews.demonstrations._07_path_shape.PathShapeFragment
+import com.techyourchance.androidviews.demonstrations._08_path_animation.PathAnimationFragment
 import com.techyourchance.androidviews.solutions._03_.SolutionExercise3Fragment
 
 
@@ -55,6 +56,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.StatePreservation -> StatePreservationFragment.newInstance()
             is ScreenSpec.Animations -> AnimationsFragment.newInstance()
             is ScreenSpec.PathShape -> PathShapeFragment.newInstance()
+            is ScreenSpec.PathAnimation -> PathAnimationFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()
