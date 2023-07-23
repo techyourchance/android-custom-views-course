@@ -16,6 +16,7 @@ import com.techyourchance.androidviews.demonstrations._05_state_preservation.Sta
 import com.techyourchance.androidviews.demonstrations._06_animations.AnimationsFragment
 import com.techyourchance.androidviews.demonstrations._07_path_shape.PathShapeFragment
 import com.techyourchance.androidviews.demonstrations._08_path_animation.PathAnimationFragment
+import com.techyourchance.androidviews.exercises._05_.MyCheckmarkFragment
 import com.techyourchance.androidviews.solutions._03_.SolutionExercise3Fragment
 
 
@@ -57,6 +58,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.Animations -> AnimationsFragment.newInstance()
             is ScreenSpec.PathShape -> PathShapeFragment.newInstance()
             is ScreenSpec.PathAnimation -> PathAnimationFragment.newInstance()
+            is ScreenSpec.Exercise5 -> MyCheckmarkFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()

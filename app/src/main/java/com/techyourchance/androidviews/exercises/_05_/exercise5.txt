@@ -1,0 +1,20 @@
+The goal of this exercise is to draw an animated checkmark on the screen.
+
+Steps:
+1. Modify MyCheckmarkView
+2. Use View's width and height to calculate the maximum checkmark's size (assume 90 degrees angle and the long stroke being 2x the length of the short stroke) *
+3. Calculate checkmark's vertices of interest (start, pivot, end)
+4. Draw a static, non-animated checkmark on the screen using Path object
+5. Draw an animated checkmark using the static Path as a reference for PathMeasure
+
+
+
+Hints:
+*
+If we designate the length of the short stroke as a, then the length of the long stroke is 3a.
+Since this checkmark is basically an inverted right (orthogonal) triangle, the following formulas apply:
+
+width = sqrt(a^2 + (2a)^2)
+height = a * 2a / sqrt(a^2 + (2a)^2) = 2a / sqrt(5)
+
+You need to find maximum value for a, such that both width and height of the checkmark fit into View's bounds (you'll probably need a bit of padding too).
