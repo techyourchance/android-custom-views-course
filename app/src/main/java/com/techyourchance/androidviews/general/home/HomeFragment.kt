@@ -74,6 +74,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.PathAnimation,
                 getString(R.string.screen_name_path_animation),
             ),
+            FromHomeDestination(
+                ScreenSpec.Exercise5,
+                getString(R.string.screen_name_my_checkmark),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

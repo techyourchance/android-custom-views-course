@@ -11,6 +11,7 @@
     <string name="screen_name_animations">Animations</string>
     <string name="screen_name_path_shape">Path shape</string>
     <string name="screen_name_path_animation">Path animation</string>
+    <string name="screen_name_my_checkmark">Exercise 5</string>
 
     <string name="positioning_left">left</string>
     <string name="positioning_translation_x">translationX</string>
