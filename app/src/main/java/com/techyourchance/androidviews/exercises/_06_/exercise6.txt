@@ -1,0 +1,7 @@
+The goal of this exercise is to add scale animation to the animated checkmark you created previously.
+
+Steps:
+1. Modify MyCheckmarkView
+2. Add additional animation after the path animation finishes (use doOnEnd extension of ValueAnimator).
+3. To animate scale factor, use ValueAnimator.ofFloat(1f, 1.2f, 1f).
+4. To scale the contents of the View, use Canvas.scale(scaleX, scaleY, pivotX, pivotY) API before drawing.
