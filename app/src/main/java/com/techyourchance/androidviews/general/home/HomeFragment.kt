@@ -78,6 +78,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.Exercise5,
                 getString(R.string.screen_name_my_checkmark),
             ),
+            FromHomeDestination(
+                ScreenSpec.Text,
+                getString(R.string.screen_name_text),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }
