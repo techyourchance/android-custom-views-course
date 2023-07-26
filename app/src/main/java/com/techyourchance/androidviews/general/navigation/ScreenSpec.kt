@@ -16,6 +16,7 @@ sealed class ScreenSpec(): Serializable {
     object PathShape: ScreenSpec()
     object PathAnimation: ScreenSpec()
     object Exercise5: ScreenSpec()
+    object Text: ScreenSpec()
 
     companion object {
 
