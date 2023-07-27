@@ -13,6 +13,7 @@
     <string name="screen_name_path_animation">Path animation</string>
     <string name="screen_name_my_checkmark">Exercise 5, 6</string>
     <string name="screen_name_text">Text</string>
+    <string name="screen_name_path_arc">Path arc</string>
 
     <string name="positioning_left">left</string>
     <string name="positioning_translation_x">translationX</string>
