@@ -86,6 +86,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.PathArc,
                 getString(R.string.screen_name_path_arc),
             ),
+            FromHomeDestination(
+                ScreenSpec.Exercise7,
+                getString(R.string.screen_name_coupons),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }
