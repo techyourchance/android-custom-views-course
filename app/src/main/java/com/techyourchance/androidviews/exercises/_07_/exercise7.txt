@@ -1,0 +1,10 @@
+The goal of this exercise is to implement coupons indicator panel.
+
+Steps:
+1. Modify CouponsView.
+2. Account for the possibility that coupons info can be bound to the view before or after onSizeChanged() callback.
+3. Calculate the size of a single "cell" where coupon's number will be shown using the total coupons count.
+4. Draw the cells (first and last cells with rounded corners).
+5. Calculate the maximum size of a text based on cell's size and the cell padding (assume at most double digit numbers).
+6. Draw numeric labels inside the cells (centered both vertically and horizontally).
+7. Use Paint.alpha property to make the "used" coupons' labels semi-transparent.
