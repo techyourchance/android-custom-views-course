@@ -90,6 +90,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.Exercise7,
                 getString(R.string.screen_name_coupons),
             ),
+            FromHomeDestination(
+                ScreenSpec.OnMeasure,
+                getString(R.string.screen_name_on_measure),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }
