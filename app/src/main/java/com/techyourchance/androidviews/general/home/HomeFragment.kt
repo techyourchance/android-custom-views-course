@@ -94,6 +94,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.OnMeasure,
                 getString(R.string.screen_name_on_measure),
             ),
+            FromHomeDestination(
+                ScreenSpec.Exercise8,
+                getString(R.string.screen_name_states),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

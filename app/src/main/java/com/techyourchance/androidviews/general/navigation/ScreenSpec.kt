@@ -20,6 +20,7 @@ sealed class ScreenSpec(): Serializable {
     object PathArc: ScreenSpec()
     object Exercise7: ScreenSpec()
     object OnMeasure: ScreenSpec()
+    object Exercise8: ScreenSpec()
 
     companion object {
 

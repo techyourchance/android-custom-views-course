@@ -1,0 +1,10 @@
+The goal of this exercise is to implement states progression indicator.
+
+Steps:
+1. Modify StatesProgressionView.
+2. Draw bullets with states' names in correct positions using just active color.
+3. Account for the current state and gray-out the inactive states.
+4. Set dimensions of StatesProgressionView to wrap the shown states (with margins).
+
+Hint:
+Custom View's onMeasure() won't be called after invalidate(). To inform the system about changes of View's dimensions at runtime, call requestLayout().
