@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.TextView
-import androidx.core.view.marginBottom
-import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -97,6 +95,10 @@ class HomeFragment : BaseFragment() {
             FromHomeDestination(
                 ScreenSpec.Exercise8,
                 getString(R.string.screen_name_states),
+            ),
+            FromHomeDestination(
+                ScreenSpec.MatrixTransformation,
+                getString(R.string.screen_name_matrix_transformation),
             ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)

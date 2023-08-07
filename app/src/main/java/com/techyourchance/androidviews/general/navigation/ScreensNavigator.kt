@@ -19,6 +19,7 @@ import com.techyourchance.androidviews.demonstrations._08_path_animation.PathAni
 import com.techyourchance.androidviews.demonstrations._09_text.TextFragment
 import com.techyourchance.androidviews.demonstrations._10_path_arcs.PathArcFragment
 import com.techyourchance.androidviews.demonstrations._11_on_measure.OnMeasureFragment
+import com.techyourchance.androidviews.demonstrations._12_matrix_transformation.MatrixTransformationFragment
 import com.techyourchance.androidviews.exercises._05_.MyCheckmarkFragment
 import com.techyourchance.androidviews.exercises._07_.CouponsFragment
 import com.techyourchance.androidviews.exercises._08_.StatesProgressionFragment
@@ -69,6 +70,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.Exercise7 -> CouponsFragment.newInstance()
             is ScreenSpec.OnMeasure -> OnMeasureFragment.newInstance()
             is ScreenSpec.Exercise8 -> StatesProgressionFragment.newInstance()
+            is ScreenSpec.MatrixTransformation -> MatrixTransformationFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()
