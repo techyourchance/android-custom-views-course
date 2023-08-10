@@ -1,11 +1,7 @@
 package com.techyourchance.androidviews.demonstrations._12_matrix_transformation
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Matrix
-import android.graphics.Paint
-import android.graphics.Path
-import android.graphics.PointF
+import android.graphics.*
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.techyourchance.androidviews.CustomViewScaffold
@@ -19,7 +15,8 @@ class MatrixTransformationView : CustomViewScaffold {
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val referencePath = Path()
     private val drawnPath = Path()
-    private val translationMatrix = Matrix()
+    private val transformationMatrix = Matrix()
+    private val arrowHandleStart = PointF()
 
     var innerTranslationX = 0f
         set(value) {
@@ -28,6 +25,12 @@ class MatrixTransformationView : CustomViewScaffold {
         }
 
     var innerTranslationY = 0f
+        set(value) {
+            field = value
+            invalidate()
+        }
+
+    var innerRotation = 0f
         set(value) {
             field = value
             invalidate()
@@ -58,7 +61,7 @@ class MatrixTransformationView : CustomViewScaffold {
         val marginHorizontal = (w - arrowHandleLength) / 2f
         val arrowHeadAngleRad = Math.toRadians(ARROW_HEAD_ANGLE_DEGREES.toDouble())
 
-        val arrowHandleStart = PointF(marginHorizontal, h / 2f)
+        arrowHandleStart.set(marginHorizontal, h / 2f)
         val arrowHandleEnd = PointF(w - marginHorizontal, h / 2f)
         val arrowHeadPoint1 = PointF(
             (arrowHandleEnd.x - arrowHeadLength * cos(arrowHeadAngleRad)).toFloat(),
@@ -80,12 +83,16 @@ class MatrixTransformationView : CustomViewScaffold {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        translationMatrix.reset()
-        translationMatrix.postTranslate(innerTranslationX, innerTranslationY)
-
         drawnPath.reset()
         drawnPath.set(referencePath)
-        drawnPath.transform(translationMatrix)
+
+        transformationMatrix.reset()
+        transformationMatrix.postRotate(innerRotation, arrowHandleStart.x, arrowHandleStart.y)
+        drawnPath.transform(transformationMatrix)
+
+        transformationMatrix.reset()
+        transformationMatrix.postTranslate(innerTranslationX, innerTranslationY)
+        drawnPath.transform(transformationMatrix)
 
         canvas.drawPath(drawnPath, paint)
     }
