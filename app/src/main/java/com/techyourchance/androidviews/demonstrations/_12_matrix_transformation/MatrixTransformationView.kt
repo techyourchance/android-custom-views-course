@@ -40,6 +40,7 @@ class MatrixTransformationView : CustomViewScaffold {
     var innerScale = 1f
         set(value) {
             field = value
+            paint.strokeWidth = dpToPx(LINE_SIZE_DP) * innerScale
             invalidate()
         }
 
@@ -57,7 +58,7 @@ class MatrixTransformationView : CustomViewScaffold {
     init {
         paint.color = ContextCompat.getColor(context, R.color.primary_variant)
         paint.style = Paint.Style.STROKE
-        paint.strokeWidth = dpToPx(LINE_SIZE_DP)
+        paint.strokeWidth = dpToPx(LINE_SIZE_DP) * innerScale
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -100,13 +101,7 @@ class MatrixTransformationView : CustomViewScaffold {
 
         transformationMatrix.reset()
         transformationMatrix.postScale(innerScale, innerScale, arrowHandleCenter.x, arrowHandleCenter.y)
-        drawnPath.transform(transformationMatrix)
-
-        transformationMatrix.reset()
         transformationMatrix.postRotate(innerRotation, arrowHandleStart.x, arrowHandleStart.y)
-        drawnPath.transform(transformationMatrix)
-
-        transformationMatrix.reset()
         transformationMatrix.postTranslate(innerTranslationX, innerTranslationY)
         drawnPath.transform(transformationMatrix)
 
