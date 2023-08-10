@@ -21,12 +21,14 @@ class MatrixTransformationFragment : BaseFragment() {
     private lateinit var viewMatrixTransformation: MatrixTransformationView
     private lateinit var sliderTranslationX: SolutionExercise4View
     private lateinit var sliderTranslationY: SolutionExercise4View
+    private lateinit var sliderRotation: SolutionExercise4View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return layoutInflater.inflate(R.layout.layout_matrix_transformation, container, false).apply {
             viewMatrixTransformation = findViewById(R.id.viewMatrixTranformation)
             sliderTranslationX = findViewById(R.id.sliderTranslationX)
             sliderTranslationY = findViewById(R.id.sliderTranslationY)
+            sliderRotation = findViewById(R.id.sliderRotation)
 
             viewMatrixTransformation.showBorder = true
 
@@ -39,6 +41,12 @@ class MatrixTransformationFragment : BaseFragment() {
             sliderTranslationY.sliderChangeListener = object : SliderChangeListener {
                 override fun onValueChanged(value: Float) {
                     viewMatrixTransformation.innerTranslationY = value * 0.5f * viewMatrixTransformation.height
+                }
+            }
+
+            sliderRotation.sliderChangeListener = object : SliderChangeListener {
+                override fun onValueChanged(value: Float) {
+                    viewMatrixTransformation.innerRotation = value * 360
                 }
             }
         }
@@ -54,6 +62,7 @@ class MatrixTransformationFragment : BaseFragment() {
     private fun updateUiValues() {
         sliderTranslationX.value = viewMatrixTransformation.innerTranslationX / viewMatrixTransformation.width
         sliderTranslationY.value = viewMatrixTransformation.innerTranslationY / viewMatrixTransformation.height
+        sliderRotation.value = viewMatrixTransformation.innerRotation
     }
 
     companion object {

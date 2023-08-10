@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewMatrixTranformation"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         />
 
     <com.techyourchance.androidviews.solutions._04_.SolutionExercise4View
@@ -50,7 +50,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sliderTranslationX"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <com.techyourchance.androidviews.solutions._04_.SolutionExercise4View
+        android:id="@+id/sliderRotation"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sliderTranslationY"
+        android:layout_marginTop="30dp"
         />
 
 
