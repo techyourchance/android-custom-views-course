@@ -63,5 +63,15 @@
         android:layout_marginTop="30dp"
         />
 
+    <com.techyourchance.androidviews.solutions._04_.SolutionExercise4View
+        android:id="@+id/sliderScale"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sliderRotation"
+        android:layout_marginTop="30dp"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
