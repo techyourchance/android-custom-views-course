@@ -17,6 +17,7 @@ class MatrixTransformationView : CustomViewScaffold {
     private val drawnPath = Path()
     private val transformationMatrix = Matrix()
     private val arrowHandleStart = PointF()
+    private val arrowHandleCenter = PointF()
 
     var innerTranslationX = 0f
         set(value) {
@@ -35,7 +36,14 @@ class MatrixTransformationView : CustomViewScaffold {
             field = value
             invalidate()
         }
-    
+
+    var innerScale = 1f
+        set(value) {
+            field = value
+            invalidate()
+        }
+
+
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
@@ -63,6 +71,10 @@ class MatrixTransformationView : CustomViewScaffold {
 
         arrowHandleStart.set(marginHorizontal, h / 2f)
         val arrowHandleEnd = PointF(w - marginHorizontal, h / 2f)
+        arrowHandleCenter.set(
+            arrowHandleStart.x + (arrowHandleEnd.x - arrowHandleStart.x) / 2f,
+            arrowHandleStart.y
+        )
         val arrowHeadPoint1 = PointF(
             (arrowHandleEnd.x - arrowHeadLength * cos(arrowHeadAngleRad)).toFloat(),
             (arrowHandleEnd.y - arrowHeadLength * sin(arrowHeadAngleRad)).toFloat()
@@ -85,6 +97,10 @@ class MatrixTransformationView : CustomViewScaffold {
 
         drawnPath.reset()
         drawnPath.set(referencePath)
+
+        transformationMatrix.reset()
+        transformationMatrix.postScale(innerScale, innerScale, arrowHandleCenter.x, arrowHandleCenter.y)
+        drawnPath.transform(transformationMatrix)
 
         transformationMatrix.reset()
         transformationMatrix.postRotate(innerRotation, arrowHandleStart.x, arrowHandleStart.y)
