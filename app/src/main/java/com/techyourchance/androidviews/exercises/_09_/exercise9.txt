@@ -1,0 +1,11 @@
+The goal of this exercise is to implement a draggable crosshair element.
+
+Steps:
+1. Modify CrosshairView.
+2. Implement the required UI without drag feature using matrix transformations.
+3. Add drag feature (can copy-paste code from DragCircleView demo).
+4. Implement support for config changes and process death.
+
+
+Hint:
+The "hairs" of the crosshair are straight radial lines. The "first hair" is drawn at a 45 degrees angle, and the angle between each adjacent pair of "hairs" is 90 degrees.

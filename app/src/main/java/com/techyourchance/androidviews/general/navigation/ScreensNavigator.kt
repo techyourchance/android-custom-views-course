@@ -23,6 +23,7 @@ import com.techyourchance.androidviews.demonstrations._12_matrix_transformation.
 import com.techyourchance.androidviews.exercises._05_.MyCheckmarkFragment
 import com.techyourchance.androidviews.exercises._07_.CouponsFragment
 import com.techyourchance.androidviews.exercises._08_.StatesProgressionFragment
+import com.techyourchance.androidviews.exercises._09_.CrosshairFragment
 import com.techyourchance.androidviews.solutions._03_.SolutionExercise3Fragment
 
 
@@ -71,6 +72,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.OnMeasure -> OnMeasureFragment.newInstance()
             is ScreenSpec.Exercise8 -> StatesProgressionFragment.newInstance()
             is ScreenSpec.MatrixTransformation -> MatrixTransformationFragment.newInstance()
+            is ScreenSpec.Exercise9 -> CrosshairFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()
