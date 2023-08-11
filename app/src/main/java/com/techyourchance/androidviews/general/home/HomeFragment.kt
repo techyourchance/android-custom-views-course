@@ -100,6 +100,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.MatrixTransformation,
                 getString(R.string.screen_name_matrix_transformation),
             ),
+            FromHomeDestination(
+                ScreenSpec.Exercise9,
+                getString(R.string.screen_name_crosshair),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

@@ -22,6 +22,7 @@ sealed class ScreenSpec(): Serializable {
     object OnMeasure: ScreenSpec()
     object Exercise8: ScreenSpec()
     object MatrixTransformation: ScreenSpec()
+    object Exercise9: ScreenSpec()
 
     companion object {
 
