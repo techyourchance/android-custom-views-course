@@ -2,4 +2,5 @@
 <resources>
     <item name="draggableCircleId" type="id"/>
     <item name="crosshairId" type="id"/>
+    <item name="gestureDetection" type="id"/>
 </resources>
