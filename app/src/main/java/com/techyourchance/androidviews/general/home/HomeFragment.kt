@@ -104,6 +104,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.Exercise9,
                 getString(R.string.screen_name_crosshair),
             ),
+            FromHomeDestination(
+                ScreenSpec.GestureDetector,
+                getString(R.string.screen_name_gesture_detector),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }
