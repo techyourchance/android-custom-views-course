@@ -21,6 +21,7 @@ import com.techyourchance.androidviews.demonstrations._10_path_arcs.PathArcFragm
 import com.techyourchance.androidviews.demonstrations._11_on_measure.OnMeasureFragment
 import com.techyourchance.androidviews.demonstrations._12_matrix_transformation.MatrixTransformationFragment
 import com.techyourchance.androidviews.demonstrations._14_gesture_detector.GestureDetectorFragment
+import com.techyourchance.androidviews.demonstrations._15_scale_gesture_detector.ScaleGestureDetectorFragment
 import com.techyourchance.androidviews.exercises._05_.MyCheckmarkFragment
 import com.techyourchance.androidviews.exercises._07_.CouponsFragment
 import com.techyourchance.androidviews.exercises._08_.StatesProgressionFragment
@@ -75,6 +76,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.MatrixTransformation -> MatrixTransformationFragment.newInstance()
             is ScreenSpec.Exercise9 -> CrosshairFragment.newInstance()
             is ScreenSpec.GestureDetector-> GestureDetectorFragment.newInstance()
+            is ScreenSpec.ScaleGestureDetector-> ScaleGestureDetectorFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()

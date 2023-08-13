@@ -24,6 +24,7 @@ sealed class ScreenSpec(): Serializable {
     object MatrixTransformation: ScreenSpec()
     object Exercise9: ScreenSpec()
     object GestureDetector: ScreenSpec()
+    object ScaleGestureDetector: ScreenSpec()
 
     companion object {
 
