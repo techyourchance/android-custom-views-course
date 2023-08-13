@@ -27,6 +27,7 @@ import com.techyourchance.androidviews.exercises._05_.MyCheckmarkFragment
 import com.techyourchance.androidviews.exercises._07_.CouponsFragment
 import com.techyourchance.androidviews.exercises._08_.StatesProgressionFragment
 import com.techyourchance.androidviews.exercises._09_.CrosshairFragment
+import com.techyourchance.androidviews.exercises._10_.SmileyFragment
 import com.techyourchance.androidviews.solutions._03_.SolutionExercise3Fragment
 
 
@@ -79,6 +80,7 @@ class ScreensNavigator constructor(
             is ScreenSpec.GestureDetector-> GestureDetectorFragment.newInstance()
             is ScreenSpec.ScaleGestureDetector-> ScaleGestureDetectorFragment.newInstance()
             is ScreenSpec.RotationGestureDetector -> RotationGestureDetectorFragment.newInstance()
+            is ScreenSpec.Exercise10 -> SmileyFragment.newInstance()
         }
         toFragment(nextFragment)
         screenNameDelegate.clearScreenName()

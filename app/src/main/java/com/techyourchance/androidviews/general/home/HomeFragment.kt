@@ -116,6 +116,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.RotationGestureDetector,
                 getString(R.string.screen_name_rotation_gesture_detector),
             ),
+            FromHomeDestination(
+                ScreenSpec.Exercise10,
+                getString(R.string.screen_name_smiley),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

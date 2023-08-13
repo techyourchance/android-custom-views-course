@@ -5,4 +5,5 @@
     <item name="gestureDetection" type="id"/>
     <item name="scaleGestureDetection" type="id"/>
     <item name="rotationGestureDetection" type="id"/>
+    <item name="smiley" type="id"/>
 </resources>
