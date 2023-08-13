@@ -26,6 +26,7 @@ sealed class ScreenSpec(): Serializable {
     object GestureDetector: ScreenSpec()
     object ScaleGestureDetector: ScreenSpec()
     object RotationGestureDetector: ScreenSpec()
+    object Exercise10: ScreenSpec()
 
     companion object {
 

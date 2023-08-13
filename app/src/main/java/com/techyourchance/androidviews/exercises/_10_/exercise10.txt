@@ -1,0 +1,47 @@
+The goal of this exercise is to make the smiley interactive: draggable, scalable and rotatable.
+
+Steps:
+1. Modify SmileyView.
+2. Do not restrict the interactive area initially.
+3. Make the smiley draggable.
+4. Make the smiley scalable.
+5. Make the smiley rotatable.
+6. Do not perform any transformations if the first touch is outside the bounds of the smiley.
+7. Preserve the smiley's transformations over configuration changes and process death.
+
+
+
+
+
+Hint:
+You can use Matrix.invert(Matrix) method to obtain the inverse of a matrix. The inverted matrix can be used to map points from the "transformed" coordinate system back to the "original" coordinate system.
+
+
+
+Hint #2:
+
+You can use this method to compute whether the coordinates of the MotionEvent fall within the
+bounds of the Drawable, taking into account the applied transformations.
+
+    private fun isWithinDrawable(event: MotionEvent): Boolean {
+        // The idea here is to perform inverse transformation on the coordinates of the MotionEvent,
+        // which will bring them into the coordinate system of the original Drawable's bounding
+        // rectangle, and then check whether the transformed coordinates fall within that bounding
+        // rectangle.
+
+        // 1. Compute the inverse of the matrix that transforms the Drawable
+        val invertedTransformationMatrix = Matrix()
+        if (!transformationMatrix.invert(invertedTransformationMatrix)) {
+            throw RuntimeException("failed to invert the transformation matrix")
+        }
+
+        // 2. Transform the MotionEvent's coordinates using the inverted matrix
+        val eventCoordinates = floatArrayOf(event.x, event.y)
+        invertedTransformationMatrix.mapPoints(eventCoordinates)
+
+        // 3. Check whether the resulting point is within the original (before transformation) bounds of the Drawable.
+        return drawableBoundsRect.contains(
+            eventCoordinates[0].toInt(),
+            eventCoordinates[1].toInt(),
+        )
+    }

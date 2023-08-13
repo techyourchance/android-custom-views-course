@@ -22,6 +22,7 @@
     <string name="screen_name_gesture_detector">GestureDetector</string>
     <string name="screen_name_scale_gesture_detector">ScaleGestureDetector</string>
     <string name="screen_name_rotation_gesture_detector">RotationGestureDetector</string>
+    <string name="screen_name_smiley">Exercise 10</string>
 
     <string name="positioning_left">left</string>
     <string name="positioning_translation_x">translationX</string>
