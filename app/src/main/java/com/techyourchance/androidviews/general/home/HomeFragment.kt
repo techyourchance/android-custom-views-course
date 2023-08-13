@@ -112,6 +112,10 @@ class HomeFragment : BaseFragment() {
                 ScreenSpec.ScaleGestureDetector,
                 getString(R.string.screen_name_scale_gesture_detector),
             ),
+            FromHomeDestination(
+                ScreenSpec.RotationGestureDetector,
+                getString(R.string.screen_name_rotation_gesture_detector),
+            ),
         )
         destinationsAdapter.bindDestinations(fromHomeDestinations)
     }

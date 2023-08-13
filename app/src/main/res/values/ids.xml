@@ -4,4 +4,5 @@
     <item name="crosshairId" type="id"/>
     <item name="gestureDetection" type="id"/>
     <item name="scaleGestureDetection" type="id"/>
+    <item name="rotationGestureDetection" type="id"/>
 </resources>
