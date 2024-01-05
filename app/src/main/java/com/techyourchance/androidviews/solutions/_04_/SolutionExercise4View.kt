@@ -134,7 +134,7 @@ class SolutionExercise4View : CustomViewScaffold {
         canvas.drawCircle(thumbXCenter, thumbYCenter, thumbRadius, paint)
     }
 
-    override fun onSaveInstanceState(): Parcelable? {
+    override fun onSaveInstanceState(): Parcelable {
         val superSavedState = super.onSaveInstanceState()
         return MySavedState(superSavedState, value)
     }
@@ -155,15 +155,20 @@ class SolutionExercise4View : CustomViewScaffold {
     }
 
 
-    private data class MySavedState(
-        var superSavedState: Parcelable?,
-        var sliderValue: Float,
-    ) : View.BaseSavedState(superSavedState) {
+    private class MySavedState: BaseSavedState {
 
-        constructor(parcel: Parcel) : this(
-            parcel.readParcelable(View.BaseSavedState::class.java.classLoader),
-            parcel.readFloat(),
-        )
+        val superSavedState: Parcelable?
+        val sliderValue: Float
+
+        constructor(superSavedState: Parcelable?, sliderValue: Float): super(superSavedState) {
+            this.superSavedState = superSavedState
+            this.sliderValue = sliderValue
+        }
+
+        constructor(parcel: Parcel) : super(parcel) {
+            this.superSavedState = parcel.readParcelable(null)
+            this.sliderValue = parcel.readFloat()
+        }
 
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)

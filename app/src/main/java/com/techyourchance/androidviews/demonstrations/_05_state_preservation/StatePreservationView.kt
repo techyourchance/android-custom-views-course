@@ -99,17 +99,27 @@ class StatePreservationView : CustomViewScaffold {
         }
     }
 
-    private data class CircleSavedState(
-        var superSavedState: Parcelable?,
-        var circleXCenterFraction: Float,
-        var circleYCenterFraction: Float,
-    ) : View.BaseSavedState(superSavedState) {
+    private class CircleSavedState: BaseSavedState {
 
-        constructor(parcel: Parcel) : this(
-            parcel.readParcelable(View.BaseSavedState::class.java.classLoader),
-            parcel.readFloat(),
-            parcel.readFloat(),
-        )
+        val superSavedState: Parcelable?
+        val circleXCenterFraction: Float
+        val circleYCenterFraction: Float
+
+        constructor(
+            superSavedState: Parcelable?,
+            circleXCenterFraction: Float,
+            circleYCenterFraction: Float,
+        ): super(superSavedState) {
+            this.superSavedState = superSavedState
+            this.circleXCenterFraction = circleXCenterFraction
+            this.circleYCenterFraction = circleYCenterFraction
+        }
+
+        constructor(parcel: Parcel) : super(parcel) {
+            this.superSavedState = parcel.readParcelable(null)
+            this.circleXCenterFraction = parcel.readFloat()
+            this.circleYCenterFraction = parcel.readFloat()
+        }
 
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)

@@ -226,21 +226,35 @@ class SolutionExercise10View : CustomViewScaffold {
         const val DRAWABLE_DEFAULT_SIZE_FRACTION = 0.5f
     }
 
-    private data class MySavedState(
-        var superSavedState: Parcelable?,
-        var drawableTranslationXFraction: Float,
-        var drawableTranslationYFraction: Float,
-        var drawableScale: Float,
-        var drawableRotation: Float,
-    ) : View.BaseSavedState(superSavedState) {
+    private class MySavedState: BaseSavedState {
 
-        constructor(parcel: Parcel) : this(
-            parcel.readParcelable(View.BaseSavedState::class.java.classLoader),
-            parcel.readFloat(),
-            parcel.readFloat(),
-            parcel.readFloat(),
-            parcel.readFloat(),
-        )
+        val superSavedState: Parcelable?
+        val drawableTranslationXFraction: Float
+        val drawableTranslationYFraction: Float
+        val drawableScale: Float
+        val drawableRotation: Float
+                
+        constructor(
+            superSavedState: Parcelable?,
+            drawableTranslationXFraction: Float,
+            drawableTranslationYFraction: Float,
+            drawableScale: Float,
+            drawableRotation: Float,
+        ): super(superSavedState) {
+            this.superSavedState = superSavedState
+            this.drawableTranslationXFraction = drawableTranslationXFraction
+            this.drawableTranslationYFraction = drawableTranslationYFraction
+            this.drawableScale = drawableScale
+            this.drawableRotation = drawableRotation
+        }
+        
+        constructor(parcel: Parcel) : super(parcel) {
+            this.superSavedState = parcel.readParcelable(null)
+            this.drawableTranslationXFraction = parcel.readFloat()
+            this.drawableTranslationYFraction = parcel.readFloat()
+            this.drawableScale = parcel.readFloat()
+            this.drawableRotation = parcel.readFloat()
+        }
 
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)
