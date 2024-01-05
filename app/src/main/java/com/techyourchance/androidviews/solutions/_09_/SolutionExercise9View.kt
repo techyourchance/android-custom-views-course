@@ -138,17 +138,27 @@ class SolutionExercise9View : CustomViewScaffold {
         private const val CROSSHAIR_LINE_SIZE_DP = 2f
     }
 
-    private data class MySavedState(
-        var superSavedState: Parcelable?,
-        var crosshairXFraction: Float,
-        var crosshairYFraction: Float,
-    ) : View.BaseSavedState(superSavedState) {
+    private class MySavedState: BaseSavedState {
 
-        constructor(parcel: Parcel) : this(
-            parcel.readParcelable(View.BaseSavedState::class.java.classLoader),
-            parcel.readFloat(),
-            parcel.readFloat(),
-        )
+        val superSavedState: Parcelable?
+        val crosshairXFraction: Float
+        val crosshairYFraction: Float
+
+        constructor(
+            superSavedState: Parcelable?,
+            crosshairXFraction: Float,
+            crosshairYFraction: Float,
+        ): super(superSavedState) {
+            this.superSavedState = superSavedState
+            this.crosshairXFraction = crosshairXFraction
+            this.crosshairYFraction = crosshairYFraction
+        }
+
+        constructor(parcel: Parcel) : super(parcel) {
+            this.superSavedState = parcel.readParcelable(null)
+            this.crosshairXFraction = parcel.readFloat()
+            this.crosshairYFraction = parcel.readFloat()
+        }
 
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)
