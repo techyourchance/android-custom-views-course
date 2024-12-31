@@ -17,7 +17,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() // required for FragNav
+        maven { url = "https://jitpack.io" } // required for FragNav
     }
 }
 
